@@ -1,6 +1,6 @@
-import Pokemon from '../src/pokemon';
+import { Pokemon } from '../src/pokemon';
 
-export default class Battle {
+export class Battle {
     pokemonOne: Pokemon;
     pokemonTwo: Pokemon;
     

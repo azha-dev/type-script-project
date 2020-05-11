@@ -1,4 +1,4 @@
-export default class Pokemon {
+export class Pokemon {
     name: string;
     speed: number;
 

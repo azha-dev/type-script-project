@@ -1,5 +1,5 @@
-import Battle from '../src/battle';
-import Pokemon from '../src/pokemon';
+import { Battle } from '../src/battle';
+import { Pokemon } from '../src/pokemon';
 
 test('First attacker', () => {
     
