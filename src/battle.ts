@@ -10,22 +10,22 @@ export class Battle {
         this.pokemonTwo = pokemonTwo;
     }
 
-    firstAttacker() {
+    firstAttacker(): Pokemon {
         if (this.pokemonOne.speed>this.pokemonTwo.speed) {
             return this.pokemonOne
         } else if (this.pokemonOne.speed<this.pokemonTwo.speed) {
             return this.pokemonTwo
         } else {
             let pokemonNumber = Math.floor(Math.random() * 2)+1
-            return pokemonNumber==1 ? this.pokemonOne : this.pokemonTwo
+            return pokemonNumber===1 ? this.pokemonOne : this.pokemonTwo
         }
     }
 
-    doAttack(attacker: Pokemon, defender: Pokemon){
+    doAttack(attacker: Pokemon, defender: Pokemon): void{
         defender.hp -= attacker.attack
     }
 
-    determineTheWinner(){
+    determineTheWinner(): void{
         if(this.pokemonOne.hp <= 0){
             this.winner = this.pokemonTwo;
         } else if(this.pokemonTwo.hp <= 0){
@@ -33,9 +33,9 @@ export class Battle {
         }
     }
 
-    oneTurn(){
+    oneTurn(): void{
         const firstAttacker = this.firstAttacker();
-        const firstDefender = firstAttacker==this.pokemonOne ? this.pokemonTwo : this.pokemonOne;
+        const firstDefender = firstAttacker===this.pokemonOne ? this.pokemonTwo : this.pokemonOne;
 
         this.doAttack(firstAttacker, firstDefender);
         console.log(firstAttacker.name +" attack "+ firstDefender.name)
@@ -47,9 +47,9 @@ export class Battle {
         this.determineTheWinner()
     }
 
-    letTheBattleBeginAndFinish(){
+    letTheBattleBeginAndFinish(): void{
         console.log("The battle between "+this.pokemonOne.name+" and "+this.pokemonOne.name+" begin !\n")
-        while(this.winner == null){
+        while(this.winner === null){
             this.oneTurn();
         }
         console.log("And the winner is ..."); 
